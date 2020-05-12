@@ -16,7 +16,9 @@
   "scripts": {
     "build": "react-scripts build",
     "clean": "yarn cache clean && npm install",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "lint": "eslint ./src",
+    "lint:format": "run-p format lint",
     "scripts": "npm-scripts-info",
     "start": "react-scripts start",
     "start:dev": "run-p start:server start",
@@ -29,12 +31,17 @@
     "start": "Start the application",
     "start:server": "Start the server",
     "start:dev": "Start the application and the server",
+    "format": "Format the code to lmatch existing code style",
     "lint": "Check for linter errors",
+    "lint:format": "Format your code and then check for linter errors",
     "validate": "Check for improperly installed dependencies"
   },
   "proxy": "http://localhost:4001",
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -45,9 +52,11 @@
   "devDependencies": {
     "body-parser": "^1.19.0",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "21.18.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "7.10.0",
     "express": "^4.17.1",
     "express-pino-logger": "^4.0.0",
@@ -55,6 +64,7 @@
     "nodemon": "^1.19.3",
     "npm-run-all": "^4.1.5",
     "npm-scripts-info": "^0.3.6",
-    "pino-colada": "^1.4.5"
+    "pino-colada": "^1.4.5",
+    "prettier": "^1.17.0"
   }
 }

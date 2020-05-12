@@ -1,33 +1,27 @@
 module.exports = exports = {
-  "parserOptions": {
-    "ecmaVersion": 6
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module"
   },
-  "ecmaFeatures": {
-    "jsx": true
+  ecmaFeatures: {
+    jsx: true
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "plugin:react/recommended"
   ],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true,
-    "jest/globals": true,
-    "cypress/globals": true
+  env: {
+    browser: true,
+    node: true,
+    es6: true
   },
-  "plugins": [
-    "react",
-    "import",
-    "jest",
-    "cypress"
-  ],
-  "rules": {
+  plugins: ["import", "react"],
+  rules: {
     "no-inner-declarations": ["warn", "functions"],
-    "generator-star-spacing": ["warn", {"before": true, "after": false}],
-    "semi": "warn",
+    "generator-star-spacing": ["warn", { before: true, after: false }],
+    semi: "off",
     "semi-style": ["warn", "last"],
     "no-extend-native": "error",
     "no-console": ["error", { allow: ["debug", "error", "dir", "info"] }],
@@ -46,9 +40,9 @@ module.exports = exports = {
     "new-cap": "warn",
     "wrap-iife": "warn",
     "arrow-spacing": "warn",
-    "no-empty": ["warn", { "allowEmptyCatch": true }],
+    "no-empty": ["warn", { allowEmptyCatch: true }],
     "react/prop-types": ["off"],
     "react/display-name": "warn",
-    "eqeqeq": "off"
+    eqeqeq: "off"
   }
 };
