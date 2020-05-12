@@ -21,7 +21,7 @@ module.exports = exports = {
   rules: {
     "no-inner-declarations": ["warn", "functions"],
     "generator-star-spacing": ["warn", { before: true, after: false }],
-    semi: "off",
+    "semi": "off",
     "semi-style": ["warn", "last"],
     "no-extend-native": "error",
     "no-console": ["error", { allow: ["debug", "error", "dir", "info"] }],
