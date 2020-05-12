@@ -16,6 +16,7 @@
   "scripts": {
     "build": "react-scripts build",
     "clean": "yarn cache clean && npm install",
+    "lint": "eslint ./src",
     "scripts": "npm-scripts-info",
     "start": "react-scripts start",
     "start:dev": "run-p start:server start",
@@ -28,6 +29,7 @@
     "start": "Start the application",
     "start:server": "Start the server",
     "start:dev": "Start the application and the server",
+    "lint": "Check for linter errors",
     "validate": "Check for improperly installed dependencies"
   },
   "proxy": "http://localhost:4001",
@@ -42,6 +44,11 @@
   ],
   "devDependencies": {
     "body-parser": "^1.19.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.0.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "21.18.0",
+    "eslint-plugin-react": "7.10.0",
     "express": "^4.17.1",
     "express-pino-logger": "^4.0.0",
     "node-env-run": "^3.0.2",
