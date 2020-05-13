@@ -19,7 +19,7 @@
     "clean": "yarn cache clean && npm install",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "lint": "eslint ./src",
-    "lint:format": "run-p format lint",
+    "lint:formatted": "run-p format lint",
     "scripts": "npm-scripts-info",
     "start": "run-p start:server start:app",
     "start:app": "react-scripts start",
@@ -34,7 +34,7 @@
     "start": "Start the application and the server",
     "format": "Format the code to lmatch existing code style",
     "lint": "Check for linter errors",
-    "lint:format": "Format your code and then check for linter errors",
+    "lint:formatted": "Format your code and then check for linter errors",
     "validate": "Check for improperly installed dependencies"
   },
   "eslintConfig": {

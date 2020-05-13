@@ -13,6 +13,11 @@ module.exports = exports = {
     "es6": true
   },
   "plugins": ["react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "no-inner-declarations": ["warn", "functions"],
     "generator-star-spacing": ["warn", { "before": true, "after": false }],
