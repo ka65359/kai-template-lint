@@ -24,7 +24,9 @@ app.get("/", (req, res) => {
 
 // Make requests to the API on port 4400
 const port = process.env.API_PORT || 4400;
-const server = app.listen(port, () => console.log("kai-api is running on localhost:" + process.env.API_PORT));
+const server = app.listen(port, () =>
+  console.log("kai-api is running on localhost:" + process.env.API_PORT)
+);
 
 // Debug server connections
 /*
@@ -34,27 +36,32 @@ setInterval(() => server.getConnections(
 */
 
 // Gracefully handle exiting
-process.on('SIGTERM', shutDown);
-process.on('SIGINT', shutDown);
+process.on("SIGTERM", shutDown);
+process.on("SIGINT", shutDown);
 
 let connections = [];
-server.on('connection', connection => {
-    connections.push(connection);
-    connection.on('close', () => connections = connections.filter(curr => curr !== connection));
+server.on("connection", (connection) => {
+  connections.push(connection);
+  connection.on(
+    "close",
+    () => (connections = connections.filter((curr) => curr !== connection))
+  );
 });
 
 function shutDown() {
-    console.log('Received kill signal, shutting down gracefully');
-    server.close(() => {
-        console.log('Closed out remaining connections');
-        process.exit(0);
-    });
+  console.log("Received kill signal, shutting down gracefully");
+  server.close(() => {
+    console.log("Closed out remaining connections");
+    process.exit(0);
+  });
 
-    setTimeout(() => {
-        console.error('Could not close connections in time, forcefully shutting down');
-        process.exit(1);
-    }, 10000);
+  setTimeout(() => {
+    console.error(
+      "Could not close connections in time, forcefully shutting down"
+    );
+    process.exit(1);
+  }, 10000);
 
-    connections.forEach(curr => curr.end());
-    setTimeout(() => connections.forEach(curr => curr.destroy()), 5000);
+  connections.forEach((curr) => curr.end());
+  setTimeout(() => connections.forEach((curr) => curr.destroy()), 5000);
 }

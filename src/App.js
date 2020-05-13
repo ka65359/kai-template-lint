@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      greeting: ''
+      name: "",
+      greeting: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,9 +19,18 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(`/kai-api/greeting?name=${encodeURIComponent(this.state.name)}`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
+    let nameStr = this.state.name || "World";
+    let urlStr = `/kai-api/greeting?name=${nameStr}`;
+    fetch(urlStr)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return "Error: Bad response";
+      })
+      .then((state) => {
+        this.setState(state);
+      });
   }
 
   render() {
@@ -47,8 +56,7 @@ class App extends Component {
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Learn React
           </a>
         </header>
