@@ -26,11 +26,14 @@ app.get("/", (req, res) => {
 const port = process.env.API_PORT || 4400;
 const server = app.listen(port, () => console.log("kai-api is running on localhost:" + process.env.API_PORT));
 
-
+// Debug server connections
+/*
 setInterval(() => server.getConnections(
     (err, connections) => console.log(`${connections} connections currently open`)
 ), 1000);
+*/
 
+// Gracefully handle exiting
 process.on('SIGTERM', shutDown);
 process.on('SIGINT', shutDown);
 
