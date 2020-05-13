@@ -6,14 +6,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      greeting: ""
+      name: "", greeting: ""
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event) {
+  handleChange(event)
+  {
     this.setState({ name: event.target.value });
   }
 
