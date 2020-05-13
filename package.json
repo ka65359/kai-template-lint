@@ -20,6 +20,8 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "lint": "eslint ./src",
     "lint:formatted": "run-p format lint",
+    "lint:formatted-styles": "run-p format lint:styles",
+    "lint:styles": "stylelint ./src",
     "scripts": "npm-scripts-info",
     "start": "run-p start:server start:app",
     "start:app": "react-scripts start",
@@ -35,6 +37,8 @@
     "format": "Format the code to lmatch existing code style",
     "lint": "Check for linter errors",
     "lint:formatted": "Format your code and then check for linter errors",
+    "lint:formatted-styles": "Format your CSS/SCC and then check for linter errors",
+    "lint:styles": "Lint CSS/SCSS files",
     "validate": "Check for improperly installed dependencies"
   },
   "eslintConfig": {
@@ -49,7 +53,14 @@
     }
   },
   "lint-staged": {
-    "*.+(js|json|css)": ["prettier --write", "eslint"]
+    "*.+(js|json)": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.+(css|scss)": [
+      "prettier --write",
+      "stylelint"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -76,6 +87,7 @@
     "npm-scripts-info": "^0.3.6",
     "pino-colada": "^1.4.5",
     "prettier": "^1.17.0",
+    "stylelint": "^13.3.3",
     "typescript": "^3.8.2"
   }
 }
