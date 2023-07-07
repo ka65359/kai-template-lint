@@ -87,7 +87,7 @@
     "npm-scripts-info": "^0.3.6",
     "pino-colada": "^1.4.5",
     "prettier": "^1.17.0",
-    "stylelint": "^13.3.3",
+    "stylelint": "^15.10.1",
     "typescript": "^3.8.2"
   }
 }
